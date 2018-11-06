@@ -1,0 +1,4 @@
+images/packer_cache
+terraform.tfstate*
+.terraform/
+password.txt
