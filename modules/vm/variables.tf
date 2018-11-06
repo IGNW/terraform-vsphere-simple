@@ -26,18 +26,6 @@ variable "domain" {
   description = "Domain name for this node"
 }
 
-variable "ipv4_address" {
-  description = "IP address to use (leave blank to use DHCP)"
-}
-
-variable "ipv4_netmask" {
-  description = "Netmask to use for primary network interface (leave blank to use DHCP)"
-}
-
-variable "ipv4_gateway" {
-  description = "Network gateway to use for primary network interface (leave blank to use DHCP)"
-}
-
 variable "node_num_cpus" {
   description = "Virtual CPUs to configure for this node"
 }

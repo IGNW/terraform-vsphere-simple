@@ -16,9 +16,6 @@ module "vm" {
 
   hostname                = "${var.hostname}"
   domain                  = "${var.domain}"
-  ipv4_address            = "${var.ipv4_address}"
-  ipv4_netmask            = "${var.ipv4_netmask}"
-  ipv4_gateway            = "${var.ipv4_gateway}"
   node_num_cpus           = "${var.num_cpus}"
   node_memory             = "${var.memory_mb}"
   root_volume_size        = "${var.root_volume_size}"

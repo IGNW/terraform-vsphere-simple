@@ -50,12 +50,7 @@ resource "vsphere_virtual_machine" "node" {
           host_name = "${var.hostname}"
           domain    = "${var.domain}"
         }
-        network_interface {
-          ipv4_address = "${var.ipv4_address}"
-          ipv4_netmask = "${var.ipv4_netmask}"
-        }
-
-        ipv4_gateway = "${var.ipv4_gateway}"
+        network_interface {}
       }
   }
 
