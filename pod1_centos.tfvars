@@ -9,5 +9,5 @@ hostname = "simple-centos-node"
 domain = "ignw.io"
 num_cpus = 1
 memory_mb = 4000
-root_volume_size = 50
-disk_template = "CentOS_7_Template"
+root_volume_size = 20
+disk_template = "CentOS_Template_Packer"

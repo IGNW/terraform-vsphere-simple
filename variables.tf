@@ -38,21 +38,6 @@ variable "domain" {
   description = "Domain name for this virtual machine"
 }
 
-variable "ipv4_address" {
-  description = "IP address to use for primary network interface (leave blank to use DHCP)"
-  default = ""
-}
-
-variable "ipv4_netmask" {
-  description = "Netmask to use for primary network interface (leave blank to use DHCP)"
-  default = ""
-}
-
-variable "ipv4_gateway" {
-  description = "Network gateway to use for primary network interface (leave blank to use DHCP)"
-  default = ""
-}
-
 variable "num_cpus" {
   description = "Number of virtual CPUs"
 }
