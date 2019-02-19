@@ -73,7 +73,7 @@ inline = [
     echo "$(date "+%F %T") My name is $HOSTNAME"
     echo "$(date "+%F %T") My IP address is $CURRENT_IP"
     sleep 30s
-    CURRENT_IP=$(/sbin/ip -f inet addr show dev $1 | grep -Po 'inet \K[\d.]+')
+    CURRENT_IP=$(/sbin/ip -f inet addr show dev $NETWORK_INTERFACE | grep -Po 'inet \K[\d.]+')
     echo "-------------------------"
   done
   echo "$(date "+%F %T") My name is $HOSTNAME"
