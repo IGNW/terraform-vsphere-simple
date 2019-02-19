@@ -23,4 +23,6 @@ module "vm" {
   node_memory             = "${var.memory_mb}"
   root_volume_size        = "${var.root_volume_size}"
   disk_template           = "${var.disk_template}"
+  ssh_username            = "${var.ssh_username}"
+  ssh_password            = "${var.ssh_password}"
 }

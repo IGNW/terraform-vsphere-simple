@@ -65,3 +65,11 @@ variable "root_volume_size" {
 variable "disk_template" {
   description = "vSphere template to use as a disk template"
 }
+
+variable "ssh_username" {
+  default = "root"
+}
+
+variable "ssh_password" {
+  default = "changeme1"
+}
