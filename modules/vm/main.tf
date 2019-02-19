@@ -82,6 +82,7 @@ inline = [
   echo "$(date "+%F %T") My name is $HOSTNAME"
   echo "$(date "+%F %T") My default network is $1"
   echo "$(date "+%F %T") My IP address is $CURRENT_IP"
+EOT
     ]
   }
 
