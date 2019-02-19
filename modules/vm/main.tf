@@ -63,20 +63,20 @@ resource "vsphere_virtual_machine" "node" {
   }
 inline = [
 <<EOT
+  set -x
   NETWORK_INTERFACE=$(ip route | grep default | sed -e "s/^.*dev.//" -e "s/.proto.*//")
+  echo "$(date "+%F %T") My default network is $NETWORK_INTERFACE"
   INITIAL_IP=$(/sbin/ip -f inet addr show dev $NETWORK_INTERFACE | grep -Po 'inet \K[\d.]+')
   CURRENT_IP=$INITIAL_IP
-  while [[ $INITIAL_IP == $CURRENT_IP ]]; do
+  while [[ "$INITIAL_IP" == "$CURRENT_IP" ]]; do
     echo "-------------------------"
     echo "$(date "+%F %T") My name is $HOSTNAME"
-    echo "$(date "+%F %T") My default network is $NETWORK_INTERFCE"
     echo "$(date "+%F %T") My IP address is $CURRENT_IP"
     sleep 30s
     CURRENT_IP=$(/sbin/ip -f inet addr show dev $1 | grep -Po 'inet \K[\d.]+')
     echo "-------------------------"
   done
   echo "$(date "+%F %T") My name is $HOSTNAME"
-  echo "$(date "+%F %T") My default network is $1"
   echo "$(date "+%F %T") My IP address is $CURRENT_IP"
 EOT
     ]
