@@ -63,21 +63,21 @@ resource "vsphere_virtual_machine" "node" {
   }
 inline = [
 <<EOT
-  set -x
   NETWORK_INTERFACE=$(ip route | grep default | sed -e "s/^.*dev.//" -e "s/.proto.*//")
-  echo "$(date "+%F %T") My default network is $NETWORK_INTERFACE"
+  echo "$(date "+%F %T") My default network is $NETWORK_INTERFACE" | tee --append /tmp/log.txt
   INITIAL_IP=$(/sbin/ip -f inet addr show dev $NETWORK_INTERFACE | grep -Po 'inet \K[\d.]+')
   CURRENT_IP=$INITIAL_IP
   while [[ "$INITIAL_IP" == "$CURRENT_IP" ]]; do
-    echo "-------------------------"
-    echo "$(date "+%F %T") My name is $HOSTNAME"
-    echo "$(date "+%F %T") My IP address is $CURRENT_IP"
+    echo "-------------------------" | tee --append /tmp/log.txt
+    echo "$(date "+%F %T") My name is $HOSTNAME" | tee --append /tmp/log.txt
+    echo "$(date "+%F %T") My IP address is $CURRENT_IP" | tee --append /tmp/log.txt
     sleep 30s
     CURRENT_IP=$(/sbin/ip -f inet addr show dev $NETWORK_INTERFACE | grep -Po 'inet \K[\d.]+')
-    echo "-------------------------"
+    echo "-------------------------" | tee --append /tmp/log.txt
   done
-  echo "$(date "+%F %T") My name is $HOSTNAME"
-  echo "$(date "+%F %T") My IP address is $CURRENT_IP"
+  echo "$(date "+%F %T") MY IP ADDRESS SEEMS TO HAVE CHANGED" | tee --append /tmp/log.txt
+  echo "$(date "+%F %T") My name is $HOSTNAME" | tee --append /tmp/log.txt
+  echo "$(date "+%F %T") My IP address is $CURRENT_IP" | tee --append /tmp/log.txt
 EOT
     ]
   }
